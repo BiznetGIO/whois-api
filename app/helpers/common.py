@@ -1,4 +1,12 @@
 import whois
+import os
+
+
+def secret_key():
+    try:
+        return os.environ.get("WHOIS_KEY")
+    except Exception:
+        return None
 
 
 def validate_domain(domain):

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-command=$COMMAND
-env=$ENVIRONMENT
-worker=$WORKER
+command=$1
+env=$2
+worker=$3
 
 function rep_ok(){
     echo -e '\e[32m'$1'\e[m'
