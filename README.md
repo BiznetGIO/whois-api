@@ -7,21 +7,23 @@ whois-api is an API service for whois lookup.
 
 ## Quickstart
 
-Install all the required depedencies:
+Build the docker image:
 
 ``` bash
-pip install -r requirements.txt
+$ docker build -t whois-api:0.0.1 .
 ```
 
-Then run the app using `$ python manage.py server`
+Run the image using `docker-compose`:
 
-## API Key
-
-Create `.whois.env` in your home directory and put these lines:
-
-``` text
-WHOIS_KEY=<your-key>
+``` bash
+$ docker-compose up
 ```
 
+Now you can use the api:
 
-
+```bash
+$ curl -X POST http://localhost:5000/api/whois/ \
+    -H "Content-Type: text/plain" \
+    -H 'X-Whois-key: fakekey123' \
+    -d "google.com"
+```
